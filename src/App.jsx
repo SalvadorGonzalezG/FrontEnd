@@ -9,7 +9,6 @@ import Formulario from './pages/Formulario';
 
 function App() {
   
-
   return (
     <>
       <Router> {/* BrouserRouter*/}
