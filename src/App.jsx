@@ -3,6 +3,8 @@ import Header from "./components/Header";
 import Dashboard from './pages/Dashboard';
 import Register from './pages/Register';
 import Formulario from './pages/Formulario';
+import { ToastContainer } from "react-toastify"; // contenedor de todos los msjs
+import 'react-toastify/dist/ReactToastify.css'
 
 
 
@@ -21,6 +23,7 @@ function App() {
           </Routes>
         </div>
       </Router>
+      <ToastContainer />
     </>
   )
 }
