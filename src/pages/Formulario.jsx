@@ -2,6 +2,16 @@
 import { useState, useEffect } from "react" //hooks de react 
 import { FaSignInAlt } from 'react-icons/fa'
 
+import { FaDeezer } from "react-icons/fa";
+import { TbLogin2 } from "react-icons/tb";
+import { FcMusic } from "react-icons/fc";
+
+import { useSelector, useDispatch } from 'react-redux' // estado global, mandar llamar la funcion disparadora
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify' // mandar msj's
+import { login, reset } from '../features/auth/authSlice' //importar funcion para registrar o resetear nuestro estado
+import Spinner from '../components/Spinner'
+
 const Formulario = () => {
             
     const [formData, setFormData] = useState({ //primer estado datos del formulario para registrar el usuario.
@@ -12,6 +22,25 @@ const Formulario = () => {
     //Desestructuracion del objeto formData el state que se creo
     const { email, password } = formData
 
+    const navigate = useNavigate() // redirigir la pagina cuando nos hayamos logeado
+    const dispatch = useDispatch() // Al hacer clic al boton submit mandemos a llamaer a la funcion register
+
+    // tengo que mandar a llamar a todos los datos que estan en mi slice y los tengo que tener disponibles en mi formulario para saber que esta pasando.
+    const {user, isLoading, isError, isSuccess, message } = useSelector((state)=> state.auth) // recibe datos de mi estado global de constantes que ya estan desestructuradas para poder tener acceso a ellos.
+
+    useEffect(() => { // hooks cuando se renderiza la app o alguna de sus dependencias para saber como se va modificando la app debido a la dependencias del estado global.
+        // proviene de authSlice
+    if(isError){ // si hay un error 
+        toast.error(message) // message del estado global.
+    }
+    // Si todo salio bien.
+    if(isSuccess){
+        navigate('/') //redirige a la pantalla de login
+    }
+    dispatch(reset()) // reset del slice que deje vacias las dependencias.
+    // dependencias
+},[user, isError, isSuccess, message, navigate, dispatch])
+
     //funcion onChange
     const onChange = (e) => { //recibe un parametro (evento) 
         setFormData((prevState) => ({ //ejecuta el Seter es una funcion recibe como param el estado previo
@@ -19,17 +48,28 @@ const Formulario = () => {
             [e.target.name]: e.target.value // tomamos el nombre del imput y comienza a agregar lo que cecleemos
         } ))
     }
-                // Funcion que evita regrescar la pagina!
+                // Funcion que evita refrescar la pagina!
     const onSubmit = (e) => {
-        e.preventDefault
+        e.preventDefault()
+                // cuando de clic en sub mit me genere un objeto con los datos email y password.
+        const userData = { // Datos para poderme logear
+            email,
+            password
+        }
+        dispatch(login(userData))
+    }
+                // Si esta cargando manda el spiner.
+    if(isLoading){
+        return <Spinner />
     }
 
     return (
         <>
             <section className="heading">
                 <h2>
-                    <FaSignInAlt /> Login
+                    <TbLogin2/> Login
                 </h2>
+                <h3> <FcMusic /></h3>
                 <   p>Por favor teclea tus credenciales.</p>
             </section>
             {/*  formulario */ }
@@ -59,7 +99,7 @@ const Formulario = () => {
                 </div>
                 <div className="form-group">
                     <button type="submit" className='btn btn-block'>
-                        Login
+                        Formulario
                     </button>
                 </div>
             </form>

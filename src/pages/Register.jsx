@@ -1,5 +1,7 @@
 // Pantalla para Registrar un usuario.
 import { FaUser } from 'react-icons/fa'
+import { PiUserCircleThin } from "react-icons/pi";
+
 import { useState, useEffect } from 'react' //hooks de react local
 import { useSelector, useDispatch } from 'react-redux' // estado global, mandar llamar la funcion disparadora
 import { useNavigate } from 'react-router-dom'
@@ -66,9 +68,9 @@ const Register = () => {
     return (
         <>
             <section className="heading">
-                <h2>
-                    <FaUser /> Registrar
-                </h2>
+                <h1>
+                    <PiUserCircleThin /> Registrar
+                </h1>
                 <   p>Por favor Crea tus credenciales.</p>
             </section>
             {/*  formulario */ }
