@@ -1,6 +1,6 @@
 // Pantalla para Registrar un usuario.
 import { PiUserCircleThin } from "react-icons/pi";
-
+import { BiGhost } from "react-icons/bi";
 import { useState, useEffect } from 'react' //hooks de react local
 import { useSelector, useDispatch } from 'react-redux' // estado global, mandar llamar la funcion disparadora
 import { useNavigate } from 'react-router-dom'
@@ -115,7 +115,7 @@ const Register = () => {
                 </div>
                 <div className="form-group">
                     <button type="submit" className='btn btn-block'>
-                        enviar
+                        enviar .... <BiGhost/>
                     </button>
                 </div>
             </form>

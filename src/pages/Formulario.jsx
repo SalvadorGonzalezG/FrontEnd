@@ -1,6 +1,7 @@
 // Pantalla para iniciar Sesión.
 import { useState, useEffect } from "react" //hooks de react 
 import { FaSignInAlt } from 'react-icons/fa'
+import { IoMdSend } from "react-icons/io";
 
 import { FaDeezer } from "react-icons/fa";
 import { TbLogin2 } from "react-icons/tb";
@@ -70,7 +71,7 @@ const Formulario = () => {
                     <TbLogin2/> Login
                 </h2>
                 <h3> <FcMusic /></h3>
-                <   p>Por favor teclea tus credenciales.</p>
+                <p>Por favor teclea tu email y pasword para poder ingresar.</p>
             </section>
             {/*  formulario */ }
         <section className="form">
@@ -99,7 +100,7 @@ const Formulario = () => {
                 </div>
                 <div className="form-group">
                     <button type="submit" className='btn btn-block'>
-                        Formulario
+                        iniciar sesión .<IoMdSend/>
                     </button>
                 </div>
             </form>
