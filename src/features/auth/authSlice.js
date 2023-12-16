@@ -9,7 +9,7 @@ import authService from './authService'
     const initialState = {
         user: user ? user : null, //Usuario que se logeo, // Si existen esos datos en el localstorage que los ponga y si no que coloque null.
         isError: false, //Si hubo un error 
-        inSuccess: false, //Si todo salio bien
+        isSuccess: false, //Si todo salio bien
         isLoading: false, // Cuando es Pending
         message: '' // el rejected devuelve el msj con el throw new Error
     }
@@ -49,7 +49,7 @@ import authService from './authService'
             // accion reductora
             reset: (state) => { // funcion para que cuando deje de servir el estado lo inicalicemos
                 state.isLoading = false // estado actualmente activo
-                state.inSuccess = false
+                state.isSuccess = false
                 state.isError = false
                 state.message = ''
             }
@@ -66,7 +66,7 @@ import authService from './authService'
                 //action es lo que me debolvio la promesa.
                 .addCase(register.fulfilled, (state, action) => {
                     state.isLoading = false // is loading lo cambiamos a false ya que ya estuvo activo
-                    state.inSuccess = true
+                    state.isSuccess = true
                     state.user = action.payload // si me pude registrar ya tengo un usuario lo que me va a devolver mi promesa.
                 })
                 // Si salio todo mal
@@ -77,13 +77,13 @@ import authService from './authService'
                     state.user = null // nos aseguramos que cuando hay un error ala hora de registrar un usuario que el usuario sea null.
                 })
 
-                .addCase(login.pending, (state)=>{
+                .addCase(login.pending, (state) => {
                     state.isLoading = true
                 })
                 
                 .addCase(login.fulfilled, (state, action) => {
                     state.isLoading = false 
-                    state.inSuccess = true
+                    state.isSuccess = true
                     state.user = action.payload 
                 })
                 
@@ -94,13 +94,12 @@ import authService from './authService'
                     state.user = null 
                 })
                 .addCase(logout.fulfilled, (state) => {
-                    state.inSuccess = true
+                    state.isSuccess = true
                     state.user = null
                 })
-
         }
     })
             // exportar como si fueran acciones.
-    export const {reset} = authSlice.actions 
+    export const { reset } = authSlice.actions 
     export default authSlice.reducer 
     // en el store se guarda esta rebanada 

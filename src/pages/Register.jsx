@@ -25,7 +25,7 @@ const Register = () => {
     const dispatch = useDispatch() // Al hacer clic al boton submit mandemos a llamaer a la funcion register
 
     // tengo que mandar a llamar a todos los datos que estan en mi slice y los tengo que tener disponibles en mi formulario para saber que esta pasando.
-    const {user, isLoading, isError, isSuccess, message } = useSelector((state)=> state.auth) // recibe datos de mi estado global de constantes que ya estan desestructuradas para poder tener acceso a ellos..
+    const { user, isLoading, isError, isSuccess, message } = useSelector((state)=> state.auth) // recibe datos de mi estado global de constantes que ya estan desestructuradas para poder tener acceso a ellos..
 
     useEffect(() => { // hooks cuando se renderiza la app o alguna de sus dependencias para saber como se va modificando la app debido a la dependencias del estado global.
             // proviene de authSlice

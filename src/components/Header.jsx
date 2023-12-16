@@ -1,16 +1,16 @@
-    {/* ENCABEZADO */}
-    import { FaSignInAlt, FaSignOutAlt, FaUser } from 'react-icons/fa'; {/* Iconos importados de react-icons*/}
+    /* ENCABEZADO */
+    import { FaSignInAlt, FaUser } from 'react-icons/fa'; /* Iconos importados de react-icons*/
     import { AiOutlineLogout } from "react-icons/ai";
 
-    import { Link, useNavigate } from 'react-router-dom'; {/* Importar Link para hacer clic */}
-    import { useSelector,useDispatch } from 'react-redux'; /* useSelector para agarrar el slice global t useDispatch para mandar llamar a la fucion despachadora encargada de ejecutar el logout*/
-    import { login, logout, reset } from '../features/auth/authSlice'; //funciones que seran ejecutadas.
+    import { Link, useNavigate } from 'react-router-dom';    /* Importar Link para hacer clic */
+    import { useSelector, useDispatch } from 'react-redux'; /* useSelector para agarrar el slice global t useDispatch para mandar llamar a la fucion despachadora encargada de ejecutar el logout*/
+    import { logout, reset } from '../features/auth/authSlice' //funciones que seran ejecutadas.
 
 
     const Header = () => {
 
         // inicializamos.
-        const navigate = useNavigate() 
+        const navigate = useNavigate()
         // cuando haga un dispacht y ese dispatch sea true me mande a la funcion de login.
         const dispatch = useDispatch()
 
@@ -29,38 +29,36 @@
             //navigate('/login')
     
         }
-
+        /*Si existe el usuario que me muestre el boton de logOut Si no existe el usuario que me muestre dos botones el de login y register */
       return (
         <header className='header'>
             <div className="logo">
                 <Link to='/'>App Tareas</Link>
             </div>
             <ul>
-                {/*Si existe el usuario que me muestre el boton de logOut Si no existe el usuario que me muestre dos botones el de login y register */}
-                {user ? 
-                (
-                <>
-                    <button className='btn' onClick={onLogout}>
-                        <AiOutlineLogout /> Logout
-                    </button>
-                </>
-                ) 
-                : 
-                (
-                <> {/*Empty fragment*/}
-                    <li>
-                    <Link to='/login'>
-                        <FaSignInAlt /> Login
-                    </Link>
-                </li>
-                <li>
-                    <Link to='/register'>
-                        <FaUser /> Register
-                    </Link>
-                </li>
-                </>
-                )}
-                
+                  {user ?
+                      (
+                          <>
+                              <button className='btn' onClick={onLogout}>
+                                  <AiOutlineLogout /> Logout
+                              </button>
+                          </>
+                      )
+                      :
+                      (
+                          <>
+                              <li>
+                                  <Link to='/formulario'>
+                                      <FaSignInAlt /> Login
+                                  </Link>
+                              </li>
+                              <li>
+                                  <Link to='/register'>
+                                      <FaUser /> Register
+                                  </Link>
+                              </li>
+                          </>
+                      )}
             </ul>
 
         </header>

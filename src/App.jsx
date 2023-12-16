@@ -1,14 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { ToastContainer } from "react-toastify"; // contenedor de todos los msj
+import 'react-toastify/dist/ReactToastify.css'
 import Header from "./components/Header";
-import Dashboard from './pages/Dashboard';
+import Dashboard from './pages/Dashboard'
 import Register from './pages/Register';
 import Formulario from './pages/Formulario';
-import { ToastContainer } from "react-toastify"; // contenedor de todos los msjs
-import 'react-toastify/dist/ReactToastify.css'
 
 
-
-
+/*Si la pagina esta en raiz el elemento es el dashboar */
 function App() {
   
   return (
@@ -17,9 +16,9 @@ function App() {
         <div className="container">
           <Header />
           <Routes>
-            <Route path='/Formulario' element={ <Formulario /> } />
-            <Route path='/' element={ <Dashboard /> } /> {/*Si la pagina esta en raiz el elemento es el dashboar */}
-            <Route path='/register' element={ <Register /> } />
+            <Route path='/' element={<Dashboard />} />
+            <Route path='/Formulario' element={<Formulario />} />
+            <Route path='/Register' element={<Register />} />
           </Routes>
         </div>
       </Router>

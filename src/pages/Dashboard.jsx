@@ -10,19 +10,20 @@ const Dashboard = () => {
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { user } = useSelector((state) => state.auth)
-  const { misTareas, isLoading, isError, message } = useSelector((state) => state.tarea)
 
-  useEffect(()=>{
+  const { user } = useSelector((state) => state.auth)
+  const { mistareas, isLoading, isError, message } = useSelector((state) => state.tarea)
+
+  useEffect(()=> {
     if(isError){
       console.log(message)
     }
     if(!user) { // si no hay un usuario mandame al login
       navigate('/login')
-    }else {
-      dispatch(getTareas())
+    }else { // y si hay usuario.
+      dispatch(getTareas()) //dispatch mande a llamar a getTareras.
     }
-    return ()=> {
+    return () => {
       dispatch(reset())
     }
   },[user, navigate, isError, message, dispatch])
@@ -35,17 +36,21 @@ const Dashboard = () => {
         <h1> Bienvenido {user && user.name}</h1> {/*Si existe el usuario coloca el nombre del usuario.*/}
         <p> Dashboard de tareas</p>
       </section>
+
       < TareaForm />
 
       <section className="content">
-        {misTareas.length > 0 ? 
+        {mistareas.length > 0 ? 
         (
-          <div className="tareas">
-            {misTareas.map((tarea) =>{
-              <TareaItem key = {tarea._id}
-            })}
+          <div className='tareas'>
+            {mistareas.map((tarea) => (
+              <TareaItem key = {tarea._id} tarea={tarea} />
+            ))}
           </div>
-        )}
+        ) : (
+          <h3>no hay tareas que mostrar</h3>
+        )
+        }
       </section>
 
     </>
