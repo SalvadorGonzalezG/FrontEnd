@@ -33,7 +33,7 @@ const Register = () => {
         }
         // Si todo salio bien.
         if (isSuccess) {
-            navigate('/') //redirige a la pantalla de login
+            navigate('/formulario') //redirige a la pantalla de login
         }
         dispatch(reset()) // reset del slice que deje vacias las dependencias.
         // dependencias
@@ -86,13 +86,13 @@ const Register = () => {
                         onChange={onChange}// cada vez que yo escriba sobre el imput cambie el estado, es decir se dispare la funcion onchange 
                     />
                     <input 
-                        type="email" 
-                        className='form-control'
-                        id='email'
-                        name='email'
-                        value={email}
-                        placeholder='Teclea tu email'
-                        onChange={onChange}
+                        type = "email" 
+                        className = 'form-control'
+                        id = 'email'
+                        name = 'email'
+                        value = {email}
+                        placeholder = 'Teclea tu email'
+                        onChange = {onChange}
                     />
                     <input 
                         type="password" 
@@ -115,7 +115,7 @@ const Register = () => {
                 </div>
                 <div className="form-group">
                     <button type="submit" className='btn btn-block'>
-                        Submit
+                        enviar
                     </button>
                 </div>
             </form>
