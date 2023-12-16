@@ -1,5 +1,4 @@
 // Pantalla para Registrar un usuario.
-import { FaUser } from 'react-icons/fa'
 import { PiUserCircleThin } from "react-icons/pi";
 
 import { useState, useEffect } from 'react' //hooks de react local
@@ -29,12 +28,12 @@ const Register = () => {
 
     useEffect(() => { // hooks cuando se renderiza la app o alguna de sus dependencias para saber como se va modificando la app debido a la dependencias del estado global.
             // proviene de authSlice
-        if(isError){ // si hay un error 
+        if (isError) { // si hay un error 
             toast.error(message) // message del estado global.
         }
         // Si todo salio bien.
-        if(isSuccess){
-            navigate('/login') //redirige a la pantalla de login
+        if (isSuccess) {
+            navigate('/') //redirige a la pantalla de login
         }
         dispatch(reset()) // reset del slice que deje vacias las dependencias.
         // dependencias
@@ -44,7 +43,7 @@ const Register = () => {
         setFormData((prevState) => ({ //ejecuta el Seter es una funcion recibe como param el estado previo
             ...prevState, // "..." agarra el estado que tengo hace una copia se agrega algo para tener un nuevo estado.
             [e.target.name]: e.target.value // tomamos el nombre del imput y comienza a agregar lo que cecleemos
-        } ))
+        }))
     }
                 // Funcion que evita regrescar la pagina!
     const onSubmit = (e) => {
@@ -71,7 +70,7 @@ const Register = () => {
                 <h1>
                     <PiUserCircleThin /> Registrar
                 </h1>
-                <   p>Por favor Crea tus credenciales.</p>
+                <p>Por favor Crea tus perfil</p>
             </section>
             {/*  formulario */ }
         <section className="form">
