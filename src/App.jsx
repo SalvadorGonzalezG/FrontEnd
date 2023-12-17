@@ -8,6 +8,11 @@ import Register from './pages/Register';
 import Formulario from './pages/Formulario';
 import { IoLibraryOutline } from "react-icons/io5";
 
+import { SiMongodb } from "react-icons/si";
+import { SiExpress } from "react-icons/si";
+import { FaReact } from "react-icons/fa";
+import { FaNodeJs } from "react-icons/fa";
+
 /*Si la pagina esta en raiz el elemento es el dashboar */
 function App() {
 
@@ -25,11 +30,12 @@ function App() {
 
           </div>
           <form action="https://github.com/SalvadorGonzalezG/FrontEnd.git"><button  className="botoncito" type="submit"> <IoLibraryOutline /> Doc FrontEnd.</button> </form>
-            <br /> 
+            <br />
              <form action='https://github.com/SalvadorGonzalezG/2doProyectoBackend.git' ><button  className="botoncito" type="submit"> <IoLibraryOutline /> Doc. Backend. </button> </form>
             
           <footer>
-            <p>©Copyright 2023 de S.G.G. <CgBolt /> </p>
+            <p>©Copyright 2023 de S.G.G. <CgBolt /> MERN proyect type. </p>
+            <h4><SiMongodb/> <SiExpress/> <FaReact/> <FaNodeJs/> </h4>
           </footer>
         </div>
       </Router>
