@@ -1,8 +1,10 @@
 // peticiones que se van hacer desde el front al back (PROMESAS AL BACKEND)
 import axios from 'axios';
 
-// Direccion de nuestra api.
-const API_URL = 'http://localhost:5000/api/users/' 
+        // Direccion de nuestra api LOCAL.
+//const API_URL = 'http://localhost:5000/api/users/' 
+        // DIRECCION CON CYCLIC.
+const API_URL = 'https://sunglasses-jay.cyclic.app/api/users/'
 
         // login de usuario.
         const login = async(userData) => {

@@ -1,7 +1,9 @@
 // funcionalidad para conectarnos al end point.
 import axios from 'axios';
-
-const API_URL = 'http://localhost:5000/api/tareas/'
+        //DIRECCION DE FORMA LOCAL.
+//const API_URL = 'http://localhost:5000/api/tareas/'
+        // DIRECCION CON CYCLIC
+const API_URL = 'https://sunglasses-jay.cyclic.app/api/tareas/'
  
 // funcion para Crear una nueva tarea
 
