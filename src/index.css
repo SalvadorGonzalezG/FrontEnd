@@ -154,6 +154,17 @@ h3 {
 .btn svg {
     margin-right: 8px;
 }
+.botoncito {
+    color: white;
+    background-color: lightblue;
+    border-radius: 30px;
+    background: rgb(14, 13, 13);
+}
+.botoncito:hover {
+    transition: 1.0s;
+    cursor: pointer;
+    scale: 1.5;
+}
 
 .btn-reverse {
     background: #fff;
