@@ -31,7 +31,7 @@ function App() {
           </div>
           <form action="https://github.com/SalvadorGonzalezG/FrontEnd.git"><button  className="botoncito" type="submit"> <IoLibraryOutline /> Doc FrontEnd.</button> </form>
             <br />
-             <form action='https://github.com/SalvadorGonzalezG/2doProyectoBackend.git' ><button  className="botoncito" type="submit"> <IoLibraryOutline /> Doc. Backend. </button> </form>
+             <form action='https://github.com/SalvadorGonzalezG/2doProyectoBackend.git' ><button  className="botoncito" type="submit"> <IoLibraryOutline /> Doc. BackEnd. </button> </form>
             
           <footer>
             <p>©Copyright 2023 de S.G.G. <CgBolt /> MERN proyect type. </p>
